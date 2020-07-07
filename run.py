@@ -9,6 +9,8 @@ __email__ = "barros@informatik.uni-hamburg.de"
 
 More information about the implementation of the model:
 
+Barros, P., Churamani, N., & Sciutti, A. (2020). The FaceChannel: A Light-weight Deep Neural Network for Facial Expression Recognition. arXiv preprint arXiv:2004.08195.
+
 Barros, P., & Wermter, S. (2016). Developing crossmodal expression recognition based on a deep neural model. Adaptive behavior, 24(5), 373-396.
 http://journals.sagepub.com/doi/full/10.1177/1059712316664017
 
