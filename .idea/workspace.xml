@@ -2,12 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="753d4ddd-145a-45b0-8a96-9838098f20ee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -21,6 +29,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../EmotionsWithMasks" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/TrainedNetworks/Images" />
+      <recent name="$PROJECT_DIR$/Utils" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -40,25 +54,41 @@
       <option name="project" value="LOCAL" />
       <updated>1594119451525</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="adding citation">
+      <created>1594119543288</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1594119543288</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Updating file structure">
+      <created>1594119797191</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1594119797191</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Changing face detector to opencv caffee" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changing face detector to opencv caffee" />
+    <MESSAGE value="adding citation" />
+    <MESSAGE value="Updating file structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating file structure" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="532" y="100" width="912" height="904" key="CommitChangelistDialog2" timestamp="1594119451395">
+    <state x="532" y="100" width="912" height="904" key="CommitChangelistDialog2" timestamp="1594119797151">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="532" y="100" width="912" height="904" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1594119451395" />
+    <state x="532" y="100" width="912" height="904" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1594119797151" />
     <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1592401157672">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1592401157672" />
-    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1594119452916">
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1594119798215">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1594119452916" />
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1594119798215" />
   </component>
 </project>
