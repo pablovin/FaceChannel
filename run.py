@@ -17,10 +17,7 @@ http://journals.sagepub.com/doi/full/10.1177/1059712316664017
 """
 
 import cv2
-import modelLoader
-import modelDictionary
-import imageProcessingUtil
-import GUIController
+from Utils import imageProcessingUtil, modelDictionary, modelLoader, GUIController
 import numpy
 
 import tensorflow as tf

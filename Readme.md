@@ -8,7 +8,7 @@ This repository holds the code for the FaceChannel neural network: a light-weigh
 **Train Model**
 
 
-![Screenshot](FaceChannel_v2.png)
+![Screenshot](TrainedNetworks/Images/FaceChannel_v2.png)
 
 The trainModel.py holds the model's architecture, for both categorical and dimensional outputs.
 Also, it holds a simple training scheme.
@@ -17,7 +17,7 @@ Also, it holds a simple training scheme.
 
 **Demo**
 
-![Screenshot](demo.png)
+![Screenshot](TrainedNetworks/Images/demo.png)
 
 This demos is configured to run using two different models: one for categorical emotions and other for arousal/valence intervals.
 

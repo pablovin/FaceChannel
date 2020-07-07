@@ -18,7 +18,8 @@ from keras.optimizers import Adam, Adamax, Adagrad, SGD, RMSprop
 
 import keras
 
-import metrics
+from Utils import metrics
+
 
 #os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
@@ -165,8 +166,8 @@ class trainModel:
         optimizer = Adamax(lr=0.002, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0)
 
         self.model.compile(loss={'mean_squared_error'},
-                            optimizer=optimizer,
-                            metrics=[metrics.ccc])
+                           optimizer=optimizer,
+                           metrics=[metrics.ccc])
 
         print ("Training:")
 
@@ -187,8 +188,8 @@ class trainModel:
         optimizer = Adamax(lr=0.002, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0)
 
         self.model.compile(loss={'arousal_output':'mean_squared_error', 'valence_output':'mean_squared_error'},
-                            optimizer=optimizer,
-                            metrics=[metrics.ccc])
+                           optimizer=optimizer,
+                           metrics=[metrics.ccc])
 
         print ("Training:")
 
