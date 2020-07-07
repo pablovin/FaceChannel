@@ -46,7 +46,7 @@ class imageProcessingUtil:
 
         (h, w) = image.shape[:2]
 
-        print ("Image shape:" + str((h,w)))
+        # print ("Image shape:" + str((h,w)))
         # construct a blob from the image
         blob = cv2.dnn.blobFromImage(image, 1.0, (300, 300),
                                      (104.0, 177.0, 123.0))
@@ -80,11 +80,11 @@ class imageProcessingUtil:
                 face = image[startY:endY, startX:endX]
                 dets = [[startX,startY,  endX, endY]]
 
-                print("--shape Image:" + str(image.shape))
-                print("--shape Face:" + str(face.shape))
-
-                print("--Detected XY: (" + str(startX) + "),(" + str(startY) + "),(" + str(startX) + "+" + str(
-                    endX) + ") - " + str(startY) + "+" + str(endY))
+                # print("--shape Image:" + str(image.shape))
+                # print("--shape Face:" + str(face.shape))
+                #
+                # print("--Detected XY: (" + str(startX) + "),(" + str(startY) + "),(" + str(startX) + "+" + str(
+                #     endX) + ") - " + str(startY) + "+" + str(endY))
 
 
                 self.previouslyDetectedface = dets
