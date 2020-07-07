@@ -35,7 +35,7 @@ faceDetectionMaximumFrequency = 20 # Frequency that a face will be detected: eve
 modelDimensional = modelLoader.modelLoader(modelDictionary.DimensionalModel)
 modelCategorical = modelLoader.modelLoader(modelDictionary.CategoricaModel)
 
-imageProcessing = imageProcessingUtil.imageProcessingUtil(faceDetectionMaximumFrequency)
+imageProcessing = imageProcessingUtil.imageProcessingUtil()
 
 GUIController = GUIController.GUIController()
 

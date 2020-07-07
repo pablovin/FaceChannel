@@ -17,13 +17,9 @@ class GUIController:
             # print("mainClassification:" + str(mainClassification))
             # print("Face color:" + str(faceColor))
 
-
-
-        # Draw Detected Face
-
-        for k, d in enumerate(detectedFace):
-            cv2.rectangle(frame, (d.left(), d.top()), (d.right(), d.bottom()), faceColor, 2)
-            break
+            # Draw Detected Face
+            for (x, y, w, h) in detectedFace:
+                cv2.rectangle(frame, (x, y), (w, h), faceColor, 2)
 
 
         return frame
