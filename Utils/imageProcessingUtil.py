@@ -1,6 +1,5 @@
 import cv2
 import numpy
-import dlib
 
 
 class imageProcessingUtil:
@@ -42,7 +41,7 @@ class imageProcessingUtil:
     previouslyDetectedface = None
     currentFaceDetectionFrequency = -1
 
-    def detectFace(self, image):
+    def detectFace(self, image, multiple=False):
 
         (h, w) = image.shape[:2]
 
@@ -55,6 +54,12 @@ class imageProcessingUtil:
         detections = self._faceDetector.forward()
 
         face = image
+
+        if multiple:
+            face = []
+            face.append(image)
+
+            dets = []
 
         for i in range(0, detections.shape[2]):
             # extract the confidence (i.e., probability) associated with
@@ -77,8 +82,14 @@ class imageProcessingUtil:
                 # extract the face ROI, convert it from BGR to RGB channel
                 # ordering, resize it to 224x224, and preprocess it
 
-                face = image[startY:endY, startX:endX]
-                dets = [[startX,startY,  endX, endY]]
+
+                if multiple:
+                    face.append(image[startY:endY, startX:endX])
+                    dets.append([[startX,startY,  endX, endY]])
+                    self.previouslyDetectedface = dets[-1]
+                    face = image[startY:endY, startX:endX]
+                    dets = [[startX, startY, endX, endY]]
+                    self.previouslyDetectedface = dets
 
                 # print("--shape Image:" + str(image.shape))
                 # print("--shape Face:" + str(face.shape))
@@ -86,12 +97,10 @@ class imageProcessingUtil:
                 # print("--Detected XY: (" + str(startX) + "),(" + str(startY) + "),(" + str(startX) + "+" + str(
                 #     endX) + ") - " + str(startY) + "+" + str(endY))
 
-
-                self.previouslyDetectedface = dets
-
-        dets = self.previouslyDetectedface
-
-
+        if multiple:
+         dets.append(self.previouslyDetectedface)
+        else:
+         dets = self.previouslyDetectedface
 
         return dets, face
 

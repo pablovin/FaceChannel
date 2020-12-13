@@ -34,7 +34,7 @@ class GUIController:
             mainClassification = numpy.argmax(categoricalReport)
             pointColor = categoricalDictionary.classesColor[mainClassification]
         else:
-            pointColor = (255,255,255)
+            pointColor = (0, 0, 255)
 
 
         #Dimensional Report

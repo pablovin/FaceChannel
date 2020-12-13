@@ -39,7 +39,9 @@ imageProcessing = imageProcessingUtil.imageProcessingUtil()
 GUIController = GUIController.GUIController()
 
 cap = cv2.VideoCapture(0)
-#cap.open(0)
+
+
+cap.open(0)
 
 if cap.isOpened():  # try to get the first frame
     rval, f = cap.read()
@@ -47,10 +49,17 @@ else:
     rval = False
 
 
+# video = "/home/pablo/Documents/Datasets/wristbot/videos/S002_G1_bl.mp4"
+#
+# cap = cv2.VideoCapture(video) #open the video
+
+frames = 0
 while(True):
     # Capture frame-by-frame
 
         rval, frame = cap.read()
+
+        # frame = cv2.resize(frame,(640,480))
 
         # detect faces
         facePoints, face = imageProcessing.detectFace(frame)
@@ -74,7 +83,7 @@ while(True):
             # Print the square around the categorical face
             frame = GUIController.createDetectedFacGUI(frame,facePoints,modelDictionary=modelCategorical.modelDictionary, categoricalClassificationReport=categoricalRecognition)
 
-            # # Create the categorical classification
+            # # # Create the categorical classification
             frame = GUIController.createCategoricalEmotionGUI(categoricalRecognition, frame,
                                                               modelCategorical.modelDictionary,
                                                               initialPosition=categoricalInitialPosition)
@@ -83,9 +92,11 @@ while(True):
 
 
 
-        # Display the resulting frame
+        #Display the resulting frame
         cv2.imshow('frame',frame)
 
+        # frames = frames+1
+        # cv2.imwrite("/home/pablo/Documents/Datasets/wristbot/frames/"+str(frames)+".png", frame)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
