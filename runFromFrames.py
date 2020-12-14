@@ -74,7 +74,7 @@ with open(saveCSVFiles+".csv", mode='a') as employee_file:
     dataList = sorted(dataList, key=lambda x: int(x.split(".")[0]))
 
 
-    for frameName in os.listdir(loadFramesFrom):  # for each frame inside this folder
+    for frameName in dataList:  # for each frame inside this folder
         print ("Started Frame:" + str(loadFramesFrom + "/" + frameName))
 
         frameDirectory = str(loadFramesFrom + "/" + frameName)
