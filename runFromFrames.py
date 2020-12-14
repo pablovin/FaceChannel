@@ -108,8 +108,8 @@ with open(saveCSVFiles+".csv", mode='a') as employee_file:
             arousals.append(dimensionalRecognition[0][0][0])
             valences.append(dimensionalRecognition[1][0][0])
             if len(arousals) > 100:
-                arousals.pop()
-                valences.pop()
+                arousals.pop(0)
+                valences.pop(0)
 
             frame = GUIController.createDimensionalPlotGUI(arousals, valences, frame)
 

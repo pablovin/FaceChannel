@@ -93,8 +93,6 @@ while(True):
             # Create the dimensional graph
             frame = GUIController.createDimensionalEmotionGUI(dimensionalRecognition, frame, categoricalReport=[], categoricalDictionary=None)
 
-
-
             if len(arousals) > 100:
                 arousals.pop(0)
                 valences.pop(0)
