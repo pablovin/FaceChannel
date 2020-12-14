@@ -87,6 +87,7 @@ class imageProcessingUtil:
                     face.append(image[startY:endY, startX:endX])
                     dets.append([[startX,startY,  endX, endY]])
                     self.previouslyDetectedface = dets[-1]
+                else:
                     face = image[startY:endY, startX:endX]
                     dets = [[startX, startY, endX, endY]]
                     self.previouslyDetectedface = dets
@@ -101,6 +102,7 @@ class imageProcessingUtil:
          dets.append(self.previouslyDetectedface)
         else:
          dets = self.previouslyDetectedface
+
 
         return dets, face
 

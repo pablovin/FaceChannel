@@ -40,6 +40,9 @@ GUIController = GUIController.GUIController()
 
 cap = cv2.VideoCapture(0)
 
+arousals = []
+valences = []
+
 
 cap.open(0)
 
@@ -90,6 +93,17 @@ while(True):
             # Create the dimensional graph
             frame = GUIController.createDimensionalEmotionGUI(dimensionalRecognition, frame, categoricalReport=[], categoricalDictionary=None)
 
+
+
+            if len(arousals) > 100:
+                arousals.pop(0)
+                valences.pop(0)
+
+            #Create dimensional plot
+            arousals.append(dimensionalRecognition[0][0][0])
+            valences.append(dimensionalRecognition[1][0][0])
+
+            frame = GUIController.createDimensionalPlotGUI(arousals, valences, frame)
 
 
         #Display the resulting frame

@@ -1,5 +1,6 @@
 import numpy
 import cv2
+import matplotlib.pyplot as plt
 
 
 class GUIController:
@@ -17,13 +18,41 @@ class GUIController:
             # print("mainClassification:" + str(mainClassification))
             # print("Face color:" + str(faceColor))
 
-            # Draw Detected Face
-            for (x, y, w, h) in detectedFace:
-                cv2.rectangle(frame, (x, y), (w, h), faceColor, 2)
+        # Draw Detected Face
+        for (x, y, w, h) in detectedFace:
+            # image[startY:endY, startX:endX]
+            # [startX, startY, endX, endY]
+            cv2.rectangle(frame, (x, y), (w, h), faceColor, 2)
 
 
         return frame
 
+
+    def createDimensionalPlotGUI(self, arousals, valences, frame):
+        plt.style.use('dark_background')
+        fig, axs = plt.subplots(2, figsize=(10,5))
+        axs[0].set_title('Arousal')
+        axs[1].set_title('Valence')
+
+        axs[0].set_xlim([0,100])
+        axs[1].set_xlim([0, 100])
+
+        axs[0].set_ylim([-1,1])
+        axs[1].set_ylim([-1, 1])
+
+        axs[0].plot(range(len(arousals)), arousals)
+        axs[1].plot(range(len(valences)), valences)
+
+        plt.savefig("plot.png", )
+        plt.close(fig)
+
+        plot = cv2.imread("plot.png")
+
+        plot = cv2.resize(plot, (1000, 250))
+
+        frame[500:750, 0:1000] = plot
+
+        return frame
 
     def createDimensionalEmotionGUI(self, classificationReport, frame, categoricalReport=[], categoricalDictionary=None):
 
