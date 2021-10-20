@@ -1,1 +1,7 @@
 *.pyc
+/src/FaceChannel/TrainedNetworks/
+/FerPlusDataset/
+/build/
+/dist/
+/examples/TrainedNetworks/
+/venv/
