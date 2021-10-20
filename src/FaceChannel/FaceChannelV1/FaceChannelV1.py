@@ -20,65 +20,86 @@ import urllib
 import tarfile
 from pathlib import Path
 
+import tensorflow as tf
 
 class FaceChannelV1:
-
 
     IMAGE_SIZE = (64, 64)
     BATCH_SIZE = 32
 
-    downloadFrom = "https://github.com/pablovin/FaceChannel/blob/master/src/FaceChannel/trainedNetworks.tar.xz"
+    downloadFrom = "https://github.com/pablovin/FaceChannel/raw/master/src/FaceChannel/FaceChannelV1/trainedNetworks.tar.xz"
+
+    CAT_CLASS_ORDER = ["Neutral", "Happiness", "Surprise", "Sadness", "Anger", "Disgust", "Fear", "Contempt"]
+    CAT_CLASS_COLOR = [(255, 255, 255), (0, 255, 0), (0, 222, 255), (255, 0, 0), (0, 0, 255), (255, 0, 144), (0, 144, 255),
+                    (75, 75, 96)]
+
+    DIM_CLASS_ORDER = ["Arousal", "Valence"]
+    DIM_CLASS_COLOR = [(0, 255, 0), (255, 0, 0)]
+
 
     def __init__(self, type="Cat", loadModel=True, numberClasses=7):
 
 
-        folderName = Path(os.path.abspath(sys.modules[FaceChannel.__module__].__file__)).parent / "TrainedNetworks/"
-        print("Class: " + str(folderName))
-        input("here")
+        folderName = Path(os.path.abspath(sys.modules[FaceChannelV1.__module__].__file__)).parent
 
-
-        if not os.path.exists(folderName):
-            os.makedirs(folderName)
-
+        if not os.path.exists(folderName / "TrainedNetworks"):
             getFrom = self.downloadFrom
-            downloadName = folderName +"/trainedNetworks.tar.xz"
+            downloadName = folderName / "trainedNetworks.tar.xz"
+
+            print("-----------------------------------------------")
+            print ("Wait ... Downloading  the trained networks...")
+            print("-----------------------------------------------")
+
             urllib.request.urlretrieve(getFrom, downloadName)
 
-            print ("Download: " +str(downloadName ))
-            # with tarfile.open(downloadName) as f:
-            #     f.extractall(folderName)
-        print ("Folder:" +str(folderName))
-        input("here!!!")
+            with tarfile.open(downloadName) as f:
+                f.extractall(folderName)
 
-        # if type =="Cat":
-        #     modelDirectory = "FaceChannel/TrainedNetworks/CategoricalFaceChannel.h5"
-        # elif type =="Dim":
-        #     modelDirectory = "FaceChannel/TrainedNetworks/DimensionalFaceChannel.h5"
-        # else:
-        #     raise("Model type not found!")
-        #
-        # if loadModel:
-        #     model = self.loadModel(modelDirectory)
-        # else:
-        #     if type =="Cat":
-        #         model = self.getCategoricalModel(numberClasses)
-        #     else:
-        #         model = self.getDimensionalModel(numberClasses)
-        #
-        #
-        # self.model = model
-        # print ("----- LOADED MODEL: Face Channel ----- ")
-        # self.model.summary()
-        #
-        # self.imageProcessing = imageProcessingUtil.imageProcessingUtil()
+            os.remove(downloadName)
+
+            print("-----------------------------------------------")
+            print("Download complete!")
+            print("-----------------------------------------------")
+
+        if type =="Cat":
+            modelDirectory = folderName / "TrainedNetworks" / "CategoricalFaceChannel.h5"
+        elif type =="Dim":
+            modelDirectory = folderName / "TrainedNetworks" / "DimensionalFaceChannel.h5"
+        else:
+            raise("Model type not found!")
+
+        if loadModel:
+            model = self.loadModel(modelDirectory)
+        else:
+            if type =="Cat":
+                model = self.getCategoricalModel(numberClasses)
+            else:
+                model = self.getDimensionalModel(numberClasses)
+
+
+        self.model = model
+        print("-----------------------------------------------")
+        print("------- LOADED MODEL: Face Channel "+str(type)+" ----------- ")
+        print("-----------------------------------------------")
+        self.model.summary()
+
+        self.imageProcessing = imageProcessingUtil.imageProcessingUtil()
 
     """ Predict """
 
     def predict(self, images, preprocess=True):
+        """This method returns the prediction for one or more images.
+
+                :param images: The images as one or a list of ndarray.
+                :param preprocess: If the image is already pre-processed or not.
+                                   a pre-processed image has a format of (64,64,1).
+
+                :return: The prediction of the given image(s) as a ndarray
+                :rtype: ndarray
+        """
 
         if len(images) == 1:
             images = numpy.array([images])
-
 
         if preprocess:
             processedImages = []
@@ -96,13 +117,25 @@ class FaceChannelV1:
 
     """Load saved Models"""
     def loadModel(self, modelDirectory):
-        return load_model(modelDirectory,
+        """This method returns a loaded FaceChannelV1.
+
+                :param modelDirectory: The directory where the loaded model is.
+
+                :return: The loaded model as a tensorflow-keras model
+                :rtype: tensorflow model
+        """
+        return tf.keras.models.load_model(modelDirectory,
                                  custom_objects={'fbeta_score': metrics.fbeta_score, 'rmse': metrics.rmse,
                                                  'recall': metrics.recall, 'precision': metrics.precision,
                                                  'ccc': metrics.ccc})
 
     """Models from Scratch"""
     def getDimensionalModel(self):
+        """This method returns a dimensional FaceChannelV1.
+
+                :return: a dimensional FaceChannelV1
+                :rtype: tensorflow model
+        """
         backbone = self.buildFaceChannel()
 
         dense = Dense(200, activation="relu", name="denseLayer")(backbone)
@@ -113,6 +146,11 @@ class FaceChannelV1:
         return Model(inputs=backbone.input, outputs=[arousal_output, valence_output])
 
     def getCategoricalModel(self, numberClasses):
+        """This method returns a categorical FaceChannelV1.
+
+                :return: a dimensional FaceChannelV1
+                :rtype: tensorflow model
+        """
 
         backbone = self.buildFaceChannel()
 
@@ -123,6 +161,14 @@ class FaceChannelV1:
         return Model(inputs=backbone.input, outputs=categoricalOutput)
 
     def buildFaceChannel(self):
+
+        """This method returns a Keras model of the FaceChannelV1 feature extractor.
+
+                :return: a Keras model of the FaceChannelV1 feature extractor
+                :rtype: tensorflow model
+        """
+
+
         def shuntingInhibition(inputs):
             inhibitionDecay = 0.5
 

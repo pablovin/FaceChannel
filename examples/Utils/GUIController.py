@@ -5,16 +5,14 @@ import matplotlib.pyplot as plt
 
 class GUIController:
 
-
-
-    def createDetectedFacGUI(self, frame, detectedFace, modelDictionary=None, categoricalClassificationReport=[]):
+    def createDetectedFacGUI(self, frame, detectedFace, faceFrameColor=None, categoricalClassificationReport=[]):
 
 
         faceColor = (0,0,0)
         if not len(categoricalClassificationReport) == 0:
 
             mainClassification = numpy.argmax(categoricalClassificationReport)
-            faceColor = modelDictionary.classesColor[mainClassification]
+            faceColor =faceFrameColor[mainClassification]
             # print("mainClassification:" + str(mainClassification))
             # print("Face color:" + str(faceColor))
 
@@ -57,7 +55,6 @@ class GUIController:
     def createDimensionalEmotionGUI(self, classificationReport, frame, categoricalReport=[], categoricalDictionary=None):
 
 
-
         if not len(categoricalReport) == 0:
 
             mainClassification = numpy.argmax(categoricalReport)
@@ -90,20 +87,20 @@ class GUIController:
         return frame
 
 
-    def createCategoricalEmotionGUI(self, classificationReport, frame, modelDictionary, initialPosition=0):
+    def createCategoricalEmotionGUI(self, classificationReport, frame, classesColor, classesOrder, initialPosition=0):
 
 
         classificationReport = classificationReport*100
 
 
-        for index,emotion in enumerate(modelDictionary.classsesOrder):
+        for index,emotion in enumerate(classesOrder):
 
             emotionClassification = int(classificationReport[int(index)])
 
-            cv2.putText(frame, emotion, (640+5, initialPosition+15+int(index)*20), cv2.FONT_HERSHEY_SIMPLEX, 0.5,  modelDictionary.classesColor[index], 1)
+            cv2.putText(frame, emotion, (640+5, initialPosition+15+int(index)*20), cv2.FONT_HERSHEY_SIMPLEX, 0.5,  classesColor[index], 1)
 
-            cv2.rectangle(frame, (640+100, initialPosition+5+int(index)*20), (int(640+100 + emotionClassification), initialPosition+20+int(index)*20), modelDictionary.classesColor[index], -1)
+            cv2.rectangle(frame, (640+100, initialPosition+5+int(index)*20), (int(640+100 + emotionClassification), initialPosition+20+int(index)*20), classesColor[index], -1)
             cv2.putText(frame, str(emotionClassification) + "%", (int(640+105 + emotionClassification + 10), initialPosition+20+int(index)*20),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, modelDictionary.classesColor[index], 1)
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, classesColor[index], 1)
 
         return frame

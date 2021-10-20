@@ -1,6 +1,8 @@
 import cv2
 import numpy
-
+from pathlib import Path
+import os
+import sys
 
 class imageProcessingUtil:
 
@@ -15,10 +17,11 @@ class imageProcessingUtil:
 
     def __init__(self):
 
-        prototxtPath = "TrainedNetworks/faceDetector/deploy.prototxt"
-        weightsPath = "TrainedNetworks/faceDetector/res10_300x300_ssd_iter_140000.caffemodel"
+        folderName = Path(os.path.abspath(sys.modules[imageProcessingUtil.__module__].__file__)).parent / "TrainedNetworks" / "faceDetector"
 
-        self._faceDetector=  cv2.dnn.readNet(prototxtPath, weightsPath)
+        prototxtPath = folderName /  "deploy.prototxt"
+        weightsPath = folderName / "res10_300x300_ssd_iter_140000.caffemodel"
+        self._faceDetector=  cv2.dnn.readNet(str(prototxtPath), str(weightsPath))
 
 
     def preProcess(self, image, imageSize= (64,64)):
