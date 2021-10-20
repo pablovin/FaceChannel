@@ -1,5 +1,5 @@
 *.pyc
-/src/FaceChannel/TrainedNetworks/
+/TrainedNetworks/
 /FerPlusDataset/
 /build/
 /dist/

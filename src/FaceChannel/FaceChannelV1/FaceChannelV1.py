@@ -10,61 +10,67 @@ from tensorflow.keras.layers import (
     BatchNormalization, MaxPooling2D, Activation, Flatten, Dropout, Dense, Lambda
 )
 
-from Metrics import metrics
+from FaceChannel.Metrics import metrics
 
-from FaceChannel import imageProcessingUtil
+from FaceChannel.FaceChannelV1 import imageProcessingUtil
 
 import sys
 import os
 import urllib
 import tarfile
+from pathlib import Path
 
 
-class FaceChannel:
+class FaceChannelV1:
 
 
     IMAGE_SIZE = (64, 64)
     BATCH_SIZE = 32
 
-    downloadFrom = "https://github.com/pablovin/ChefsHatPlayersClub/raw/main/playersClub/src/ChefsHatPlayersClub/Agents/KarmaChameleonClub/Trained/"
+    downloadFrom = "https://github.com/pablovin/FaceChannel/blob/master/src/FaceChannel/trainedNetworks.tar.xz"
 
     def __init__(self, type="Cat", loadModel=True, numberClasses=7):
 
-        folderName = os.path.abspath(sys.modules[FaceChannel.__module__].__file__)[0:-7] + "/TrainedNetworks/"
+
+        folderName = Path(os.path.abspath(sys.modules[FaceChannel.__module__].__file__)).parent / "TrainedNetworks/"
+        print("Class: " + str(folderName))
+        input("here")
+
 
         if not os.path.exists(folderName):
             os.makedirs(folderName)
 
-            getFrom = self.downloadFrom + "/" + type + ".tar.xz"
-            downloadName = folderName + type + ".tar.xz"
+            getFrom = self.downloadFrom
+            downloadName = folderName +"/trainedNetworks.tar.xz"
             urllib.request.urlretrieve(getFrom, downloadName)
 
-            with tarfile.open(downloadName) as f:
-                f.extractall(folderName)
-
+            print ("Download: " +str(downloadName ))
+            # with tarfile.open(downloadName) as f:
+            #     f.extractall(folderName)
+        print ("Folder:" +str(folderName))
         input("here!!!")
 
-        if type =="Cat":
-            modelDirectory = "FaceChannel/TrainedNetworks/CategoricalFaceChannel.h5"
-        elif type =="Dim":
-            modelDirectory = "FaceChannel/TrainedNetworks/DimensionalFaceChannel.h5"
-        else:
-            raise("Model type not found!")
-
-        if loadModel:
-            model = self.loadModel(modelDirectory)
-        else:
-            if type =="Cat":
-                model = self.getCategoricalModel(numberClasses)
-            else:
-                model = self.getDimensionalModel(numberClasses)
-
-
-        self.model = model
-        print ("----- LOADED MODEL: Face Channel ----- ")
-        self.model.summary()
-
-        self.imageProcessing = imageProcessingUtil.imageProcessingUtil()
+        # if type =="Cat":
+        #     modelDirectory = "FaceChannel/TrainedNetworks/CategoricalFaceChannel.h5"
+        # elif type =="Dim":
+        #     modelDirectory = "FaceChannel/TrainedNetworks/DimensionalFaceChannel.h5"
+        # else:
+        #     raise("Model type not found!")
+        #
+        # if loadModel:
+        #     model = self.loadModel(modelDirectory)
+        # else:
+        #     if type =="Cat":
+        #         model = self.getCategoricalModel(numberClasses)
+        #     else:
+        #         model = self.getDimensionalModel(numberClasses)
+        #
+        #
+        # self.model = model
+        # print ("----- LOADED MODEL: Face Channel ----- ")
+        # self.model.summary()
+        #
+        # self.imageProcessing = imageProcessingUtil.imageProcessingUtil()
 
     """ Predict """
 

@@ -57,22 +57,6 @@ else:
     about["__version__"] = VERSION
 
 
-def package_files(directories: list):
-    """
-    This function will return the path of all files in the directories
-    recursively, as setup.py package_data cannot handle * placeholders
-    """
-    paths = []
-    for directory in directories:
-        for (path, directories, filenames) in os.walk(directory):
-            for filename in filenames:
-                paths.append(os.path.join('..', path, filename))
-    return paths
-
-
-
-
-
 class UploadCommand(Command):
     """Support setup.py upload."""
 
@@ -110,15 +94,6 @@ class UploadCommand(Command):
         sys.exit()
 
 
-
-# add all paths that you want to add recursively to package_files()
-# NOTE: this path is relative to the setup.py
-trainedFiles = package_files(
-                            [
-                                "./home/pablo/Documents/Workspace/FaceChannel/src/FaceChannel/TrainedNetworks", # my scripts
-                            ]
-                        )
-
 # Where the magic happens:
 setup(
     name=NAME,
@@ -131,13 +106,7 @@ setup(
     python_requires=REQUIRES_PYTHON,
     url=URL,
     packages=find_packages("src", exclude=["test*"]),
-    # package_dir={"": "src"},
-
-    # packages=find_packages(),
-    package_data={'TrainedNetworks': ['./TrainedNetworks/*']},
-    include_package_data = True,
-
-
+    package_dir={"": "src"},
     # If your package is a single module, use this instead of 'packages':
     # py_modules=['mypackage'],
     # entry_points={
@@ -145,8 +114,7 @@ setup(
     # },
     install_requires=REQUIRED,
     extras_require=EXTRAS,
-    # package_data={'': trainedFiles},
-    # include_package_data=True,
+    include_package_data=True,
     license="MIT",
     classifiers=[
         # Trove classifiers
