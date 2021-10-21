@@ -46,6 +46,7 @@ class imageProcessingUtil:
 
     def detectFace(self, image, multiple=False):
 
+        image = numpy.array(image)
         (h, w) = image.shape[:2]
 
         # print ("Image shape:" + str((h,w)))

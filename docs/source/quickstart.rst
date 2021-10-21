@@ -49,11 +49,12 @@ To start the facial expression recognition is simple and painless:
 .. code-block:: python
 
     """Facial Expression Recognition"""
+    import cv2
     from FaceChannel.FaceChannelV1.FaceChannelV1 import FaceChannelV1
 
     faceChannelCat = FaceChannelV1("Cat", loadModel=True)
 
-    categoricalRecognition = faceChannelCat.predict("image.png")
+    categoricalRecognition = faceChannelCat.predict(cv2.imread("image.png"))
 
     print categoricalRecognition
 

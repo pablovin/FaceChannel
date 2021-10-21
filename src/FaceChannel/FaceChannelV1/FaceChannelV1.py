@@ -1,3 +1,11 @@
+"""
+FaceChannelV1.py
+====================================
+Version1 of the FaceChannel model.
+"""
+
+
+
 import numpy
 
 import keras
@@ -25,25 +33,43 @@ import tensorflow as tf
 class FaceChannelV1:
 
     IMAGE_SIZE = (64, 64)
-    BATCH_SIZE = 32
+    """Image size used as input used by FaceChannelV1"""
 
-    downloadFrom = "https://github.com/pablovin/FaceChannel/raw/master/src/FaceChannel/FaceChannelV1/trainedNetworks.tar.xz"
+
+    BATCH_SIZE = 32
+    """Batch size used by FaceChannelV1"""
+
+    DOWNLOAD_FROM = "https://github.com/pablovin/FaceChannel/raw/master/src/FaceChannel/FaceChannelV1/trainedNetworks.tar.xz"
+    """URL where the model is stored """
 
     CAT_CLASS_ORDER = ["Neutral", "Happiness", "Surprise", "Sadness", "Anger", "Disgust", "Fear", "Contempt"]
+    """ Order of the pre-trained categorical model's output """
+
+
     CAT_CLASS_COLOR = [(255, 255, 255), (0, 255, 0), (0, 222, 255), (255, 0, 0), (0, 0, 255), (255, 0, 144), (0, 144, 255),
                     (75, 75, 96)]
+    """ Color associated with each output of the pre-trained categorical model """
+
 
     DIM_CLASS_ORDER = ["Arousal", "Valence"]
+    """ Order of the pre-trained dimensional model's output """
+
     DIM_CLASS_COLOR = [(0, 255, 0), (255, 0, 0)]
+    """ Color associated with each output of the pre-trained dimensional model """
 
 
     def __init__(self, type="Cat", loadModel=True, numberClasses=7):
+        """Constructor of the FaceChannelV1
 
+                :param type: Type of the model, choose between "Cat" and "Dim".
+                :param loadModel: Load the pre-trained model. Boolean.
+                :param numberClasses: If not loading a pre-trained model, you can choose the number of classes of a categorical model.
+        """
 
         folderName = Path(os.path.abspath(sys.modules[FaceChannelV1.__module__].__file__)).parent
 
         if not os.path.exists(folderName / "TrainedNetworks"):
-            getFrom = self.downloadFrom
+            getFrom = self.DOWNLOAD_FROM
             downloadName = folderName / "trainedNetworks.tar.xz"
 
             print("-----------------------------------------------")
@@ -85,8 +111,6 @@ class FaceChannelV1:
 
         self.imageProcessing = imageProcessingUtil.imageProcessingUtil()
 
-    """ Predict """
-
     def predict(self, images, preprocess=True):
         """This method returns the prediction for one or more images.
 
@@ -115,7 +139,7 @@ class FaceChannelV1:
 
         return classification
 
-    """Load saved Models"""
+
     def loadModel(self, modelDirectory):
         """This method returns a loaded FaceChannelV1.rst.
 
@@ -129,7 +153,6 @@ class FaceChannelV1:
                                                  'recall': metrics.recall, 'precision': metrics.precision,
                                                  'ccc': metrics.ccc})
 
-    """Models from Scratch"""
     def getDimensionalModel(self):
         """This method returns a dimensional FaceChannelV1.rst.
 
@@ -161,13 +184,11 @@ class FaceChannelV1:
         return Model(inputs=backbone.input, outputs=categoricalOutput)
 
     def buildFaceChannel(self):
-
         """This method returns a Keras model of the FaceChannelV1.rst feature extractor.
 
                 :return: a Keras model of the FaceChannelV1.rst feature extractor
                 :rtype: tensorflow model
         """
-
 
         def shuntingInhibition(inputs):
             inhibitionDecay = 0.5

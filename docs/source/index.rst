@@ -11,6 +11,7 @@ Welcome to FaceChannel's documentation!
 	:alt: FaceChannel Demo
 	:align: center
 
+
 This project aims at providing a ready-to-use solution for facial expression recognition.
 The models available here are free to be used for personal and academic purpose.
 
