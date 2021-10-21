@@ -1,7 +1,8 @@
 FaceChannel.FaceChannelV1 Model Definition
 =======================
-Definition of the FaceChannelV1 Model
 
+.. Submodules
+.. ----------
 
 
 FaceChannel.FaceChannelV1.FaceChannelV1 module

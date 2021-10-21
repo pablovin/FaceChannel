@@ -66,7 +66,8 @@ pygments_style = None
 
 autodoc_mock_imports = ['tensorflow']
 autodoc_mock_imports = ['keras']
-
+autodoc_mock_imports = ['cv2']
+autodoc_mock_imports = ['numpy']
 
 # -- Options for HTML output -------------------------------------------------
 
