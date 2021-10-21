@@ -6,15 +6,24 @@
 Welcome to FaceChannel's documentation!
 =======================================
 
+
+
+.. image:: ../../gitImages/ChefsHat_GYM_-_Example_Random_Agent.gif
+	:alt: Chef's Hat Card Game
+	:align: center
+
+This project aims at providing a ready-to-use solution for facial expression recognition.
+The models available here are free to be used for personal and academic purpose.
+
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
+   quickstart
+   license
+   contact
 
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+Acknowledgment
+==============
+This environment and all its development is supported by a Starting Grant from the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation programme. G.A. No 804388, wHiSPER.
