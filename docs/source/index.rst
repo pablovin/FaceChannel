@@ -7,9 +7,8 @@ Welcome to FaceChannel's documentation!
 =======================================
 
 
-
-.. image:: ../../gitImages/ChefsHat_GYM_-_Example_Random_Agent.gif
-	:alt: Chef's Hat Card Game
+.. image:: ../../Images/demo.png
+	:alt: FaceChannel Demo
 	:align: center
 
 This project aims at providing a ready-to-use solution for facial expression recognition.
