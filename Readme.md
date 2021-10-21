@@ -8,8 +8,6 @@ This repository holds the FaceChannel Library. The FaceChannel contains differen
 
 You can install the library using pip:
 
-.. code-block:: bash
-
     pip install facechannel
 
 and you can check the [full documentation](https://facechannel.readthedocs.io/en/latest/)  for more information.
