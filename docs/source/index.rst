@@ -21,6 +21,7 @@ The models available here are free to be used for personal and academic purpose.
 
    quickstart
    FaceChannelV1
+   SelfAffectiveMemory
    license
    contact
 

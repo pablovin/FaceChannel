@@ -1,6 +1,7 @@
 import numpy
 import cv2
 import matplotlib.pyplot as plt
+from matplotlib.backends.backend_agg import FigureCanvasAgg
 
 
 class GUIController:
@@ -102,5 +103,53 @@ class GUIController:
             cv2.rectangle(frame, (640+100, initialPosition+5+int(index)*20), (int(640+100 + emotionClassification), initialPosition+20+int(index)*20), classesColor[index], -1)
             cv2.putText(frame, str(emotionClassification) + "%", (int(640+105 + emotionClassification + 10), initialPosition+20+int(index)*20),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.5, classesColor[index], 1)
+
+        return frame
+
+    def createAffectiveMemoryGUI(self, affectiveMemoryWeights, affectiveMemoryNodesAges, frame):
+
+        valence  = numpy.array(affectiveMemoryWeights)[:,0]
+        arousal = numpy.array(affectiveMemoryWeights)[:, 1]
+        numberNeurons = len(affectiveMemoryWeights)
+
+        averageArousal = numpy.mean(arousal)
+        averageValence = numpy.mean(valence)
+
+
+        figure = plt.figure()
+        plot = figure.add_subplot(111)
+        canvas = FigureCanvasAgg(figure)
+
+        plt.scatter(arousal, valence, c = affectiveMemoryNodesAges, cmap='viridis')# With color
+
+
+        for index, a in enumerate(arousal):
+            # print ("Index:" + str(index))
+            plot.scatter(a, valence[index], alpha=float(index/len(arousal)), c="b") # without color
+
+        plot.scatter(averageArousal,averageValence, c="red")
+
+
+        plot.set_xlim(-1, 1)
+        plot.set_ylim(-1, 1)
+        plot.set_xlabel('Arousal')
+        plot.set_ylabel('Valence')
+
+        canvas.draw()
+        image = canvas.buffer_rgba()
+        image = numpy.asarray(image)
+        image = cv2.cvtColor(image, cv2.COLOR_RGBA2RGB)
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
+        image = cv2.resize(image, (380,380))
+
+
+        frame[50:430, 644:1024] = image
+
+        cv2.putText(frame, "Affective Memory" , (660 , 10 + 15), cv2.FONT_HERSHEY_SIMPLEX, 1,
+                    (255,255,255), 1)
+        cv2.putText(frame, "Neurons: " + str(numberNeurons), (660, 50 + 15), cv2.FONT_HERSHEY_SIMPLEX, 1,
+                    (255, 255, 255), 1)
+
 
         return frame

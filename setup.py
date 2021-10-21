@@ -23,7 +23,7 @@ URL = "https://github.com/pablovin/facechannel"
 EMAIL = "pablovin@gmail.com"
 AUTHOR = "Pablo Barros"
 REQUIRES_PYTHON = ">=3.6.0"
-VERSION = "0.0.1"
+VERSION = "0.0.2"
 
 # What packages are required for this module to be executed?
 with open("Requirements.txt") as requirements:
