@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FaceChannel.FaceChannelV1 Image Processing Util Definition &mdash; FaceChannel 0.001 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> FaceChannel
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FaceChannelV1.html">Models and Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">FaceChannel</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>FaceChannel.FaceChannelV1 Image Processing Util Definition</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/FaceChannelV1.ImageProcessing.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="facechannel-facechannelv1-image-processing-util-definition">
+<h1>FaceChannel.FaceChannelV1 Image Processing Util Definition<a class="headerlink" href="#facechannel-facechannelv1-image-processing-util-definition" title="Permalink to this headline"></a></h1>
+<section id="facechannel-facechannelv1-imageprocessingutil-module">
+<h2>FaceChannel.FaceChannelV1.imageProcessingUtil module<a class="headerlink" href="#facechannel-facechannelv1-imageprocessingutil-module" title="Permalink to this headline"></a></h2>
+<span class="target" id="module-FaceChannel.FaceChannelV1.imageProcessingUtil"></span><section id="imageprocessingutil-py">
+<h3>imageProcessingUtil.py<a class="headerlink" href="#imageprocessingutil-py" title="Permalink to this headline"></a></h3>
+<p>Image processing module used by the FaceChannelV1</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="FaceChannel.FaceChannelV1.imageProcessingUtil.imageProcessingUtil">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">FaceChannel.FaceChannelV1.imageProcessingUtil.</span></span><span class="sig-name descname"><span class="pre">imageProcessingUtil</span></span><a class="headerlink" href="#FaceChannel.FaceChannelV1.imageProcessingUtil.imageProcessingUtil" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="FaceChannel.FaceChannelV1.imageProcessingUtil.imageProcessingUtil.currentFaceDetectionFrequency">
+<span class="sig-name descname"><span class="pre">currentFaceDetectionFrequency</span></span><em class="property"> <span class="pre">=</span> <span class="pre">-1</span></em><a class="headerlink" href="#FaceChannel.FaceChannelV1.imageProcessingUtil.imageProcessingUtil.currentFaceDetectionFrequency" title="Permalink to this definition"></a></dt>
+<dd><p>A counter to identify which is the current frame for face detection</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="FaceChannel.FaceChannelV1.imageProcessingUtil.imageProcessingUtil.detectFace">
+<span class="sig-name descname"><span class="pre">detectFace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multiple</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#FaceChannel.FaceChannelV1.imageProcessingUtil.imageProcessingUtil.detectFace" title="Permalink to this definition"></a></dt>
+<dd><p>Detect a face using the cv2 face detector. It detects a face every “faceDetectionMaximumFrequency” frames.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> – ndarray with the image to be processed.</p></li>
+<li><p><strong>multiple</strong> – allows the code to detect multiple faces in one single frame</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dets: the tuple of the position of the recognized face. using the format: startX, startY, endX, endY. A list if multiple faces are detected.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>face: the image of the detected face. A list if multiple feces are detected.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="FaceChannel.FaceChannelV1.imageProcessingUtil.imageProcessingUtil.faceDetectionMaximumFrequency">
+<span class="sig-name descname"><span class="pre">faceDetectionMaximumFrequency</span></span><em class="property"> <span class="pre">=</span> <span class="pre">10</span></em><a class="headerlink" href="#FaceChannel.FaceChannelV1.imageProcessingUtil.imageProcessingUtil.faceDetectionMaximumFrequency" title="Permalink to this definition"></a></dt>
+<dd><p>Search for a new face every x frames.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="FaceChannel.FaceChannelV1.imageProcessingUtil.imageProcessingUtil.faceDetector">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">faceDetector</span></span><a class="headerlink" href="#FaceChannel.FaceChannelV1.imageProcessingUtil.imageProcessingUtil.faceDetector" title="Permalink to this definition"></a></dt>
+<dd><p>get the cv2 face detector</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="FaceChannel.FaceChannelV1.imageProcessingUtil.imageProcessingUtil.preProcess">
+<span class="sig-name descname"><span class="pre">preProcess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imageSize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(64,</span> <span class="pre">64)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#FaceChannel.FaceChannelV1.imageProcessingUtil.imageProcessingUtil.preProcess" title="Permalink to this definition"></a></dt>
+<dd><p>Pre-process an image to make it ready to be used as input to the FaceChannelV1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> – ndarray with the image to be processed.</p></li>
+<li><p><strong>imageSize</strong> – tuple with the final image size, default is (64x64)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The pre-processed image</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="FaceChannel.FaceChannelV1.imageProcessingUtil.imageProcessingUtil.previouslyDetectedface">
+<span class="sig-name descname"><span class="pre">previouslyDetectedface</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#FaceChannel.FaceChannelV1.imageProcessingUtil.imageProcessingUtil.previouslyDetectedface" title="Permalink to this definition"></a></dt>
+<dd><p>Identify if in the previous frame, a face was detected</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Pablo Barros.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
