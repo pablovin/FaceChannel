@@ -117,7 +117,7 @@ class FaceChannelV1:
 
     """Load saved Models"""
     def loadModel(self, modelDirectory):
-        """This method returns a loaded FaceChannelV1.
+        """This method returns a loaded FaceChannelV1.rst.
 
                 :param modelDirectory: The directory where the loaded model is.
 
@@ -131,9 +131,9 @@ class FaceChannelV1:
 
     """Models from Scratch"""
     def getDimensionalModel(self):
-        """This method returns a dimensional FaceChannelV1.
+        """This method returns a dimensional FaceChannelV1.rst.
 
-                :return: a dimensional FaceChannelV1
+                :return: a dimensional FaceChannelV1.rst
                 :rtype: tensorflow model
         """
         backbone = self.buildFaceChannel()
@@ -146,9 +146,9 @@ class FaceChannelV1:
         return Model(inputs=backbone.input, outputs=[arousal_output, valence_output])
 
     def getCategoricalModel(self, numberClasses):
-        """This method returns a categorical FaceChannelV1.
+        """This method returns a categorical FaceChannelV1.rst.
 
-                :return: a dimensional FaceChannelV1
+                :return: a dimensional FaceChannelV1.rst
                 :rtype: tensorflow model
         """
 
@@ -162,9 +162,9 @@ class FaceChannelV1:
 
     def buildFaceChannel(self):
 
-        """This method returns a Keras model of the FaceChannelV1 feature extractor.
+        """This method returns a Keras model of the FaceChannelV1.rst feature extractor.
 
-                :return: a Keras model of the FaceChannelV1 feature extractor
+                :return: a Keras model of the FaceChannelV1.rst feature extractor
                 :rtype: tensorflow model
         """
 
