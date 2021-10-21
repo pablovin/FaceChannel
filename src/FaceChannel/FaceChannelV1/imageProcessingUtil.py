@@ -1,3 +1,10 @@
+"""
+imageProcessingUtil.py
+====================================
+Image processing module used by the FaceChannelV1
+"""
+
+
 import cv2
 import numpy
 from pathlib import Path
@@ -9,13 +16,26 @@ class imageProcessingUtil:
 
 
     faceDetectionMaximumFrequency = 10
+    """Search for a new face every x frames."""
+
+    previouslyDetectedface = None
+    """Identify if in the previous frame, a face was detected"""
+
+
+    currentFaceDetectionFrequency = -1
+    """A counter to identify which is the current frame for face detection"""
 
 
     @property
     def faceDetector(self):
+        """get the cv2 face detector
+        """
         return self._faceDetector
 
+
     def __init__(self):
+        """Constructor of the FaceChannelV1 image processing module
+        """
 
         folderName = Path(os.path.abspath(sys.modules[imageProcessingUtil.__module__].__file__)).parent / "TrainedNetworks" / "faceDetector"
 
@@ -25,6 +45,14 @@ class imageProcessingUtil:
 
 
     def preProcess(self, image, imageSize= (64,64)):
+        """Pre-process an image to make it ready to be used as input to the FaceChannelV1
+
+                :param image: ndarray with the image to be processed.
+                :param imageSize: tuple with the final image size, default is (64x64)
+
+                :return: The pre-processed image
+                :rtype: ndarray
+        """
 
         image = numpy.array(image)
 
@@ -41,10 +69,20 @@ class imageProcessingUtil:
         return image
 
 
-    previouslyDetectedface = None
-    currentFaceDetectionFrequency = -1
+
 
     def detectFace(self, image, multiple=False):
+        """Detect a face using the cv2 face detector. It detects a face every "faceDetectionMaximumFrequency" frames.
+
+                :param image: ndarray with the image to be processed.
+                :param multiple: allows the code to detect multiple faces in one single frame
+
+                :return: dets: the tuple of the position of the recognized face. using the format: startX, startY, endX, endY. A list if multiple faces are detected.
+                :rtype: ndarray
+
+                :return: face: the image of the detected face. A list if multiple feces are detected.
+                :rtype: ndarray
+        """
 
         image = numpy.array(image)
         (h, w) = image.shape[:2]

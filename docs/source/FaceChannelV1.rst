@@ -1,13 +1,6 @@
-FaceChannel.FaceChannelV1 package
+Models and Documentation
 =======================
 
-.. Submodules
-.. ----------
-
-FaceChannel.FaceChannelV1.FaceChannelV1 module
-----------------------------------
-
-.. automodule:: FaceChannel.FaceChannelV1.FaceChannelV1
-    :members:
-    :undoc-members:
-    :show-inheritance:
+.. toctree::
+    FaceChannelV1.Modules
+    FaceChannelV1.ImageProcessing

@@ -20,6 +20,7 @@ The models available here are free to be used for personal and academic purpose.
    :caption: Contents:
 
    quickstart
+   FaceChannelV1
    license
    contact
 
