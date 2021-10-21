@@ -13,7 +13,7 @@ To install the FaceChannel library, you will need python >= 3.6. The environment
     pip install facechannel
 
 
-Understanding FaceChannel
+Facial Expression Recognition in Your Hand
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 FaceChannel is a python library that holds several facial expression recognition models. The main idea behind the FaceChannel is to facilitate the use of this technology

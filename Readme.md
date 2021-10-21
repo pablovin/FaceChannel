@@ -1,68 +1,51 @@
-**Frame-Based Emotion Categorization**
-
-
-
-This repository holds the code for the FaceChannel neural network: a light-weight neural network for automatic facial expression recognition that has much fewer parameters than common deep neural networks. 
-
-
-**Train Model**
-
-
-![Screenshot](Images/FaceChannel_v2.png)
-
-The trainModel.py holds the model's architecture, for both categorical and dimensional outputs.
-Also, it holds a simple training scheme.
-
-
-
-**Demo**
+**FaceChannel Library - Facial Expression Recognition Models!**
 
 ![Screenshot](Images/demo.png)
 
-This demos is configured to run using two different models: one for categorical emotions and other for arousal/valence intervals.
+This repository holds the FaceChannel Library. The FaceChannel contains different facial expression recognition models, and makes it easier to deploy and use them.
+
+**Instalation and Documentation**
+
+You can install the library using pip:
+
+.. code-block:: bash
+
+    pip install facechannel
+
+and you can check the [full documentation](https://facechannel.readthedocs.io/en/latest/)  for more information.
+
+Also check the examples folder for a full set of ready-to-use demos!
 
 
-Both models are implemented with KERAS. more information can be found here: <br>
+**Avaliable Models**
+
+FaceChannel is a python library that holds several facial expression recognition models. The main idea behind the FaceChannel is to facilitate the use of this technology
+by reducing the deployment effort. This is the current list of available models:
 
 
 
-****Requirements****
-
-Install all the libraries on the requirements.txt file.
-
-****Instructions****
-
-
-To run the demo with your own model (has to be saved as a KERAS model), add an entry on the modelDictionary.py containing the model's directory, class dictionary and type. Also, change the run.py to matche your inputsize (faceSize).
+Model | Input Type | Output Type |
+------------- | ------------- | -------------
+FaceChannelV1  Cat  | Single Image (64x64) | ["Neutral", "Happiness", "Surprise", "Sadness", "Anger", "Disgust", "Fear", "Contempt"] |
+FaceChannelV1  Dim  | Single Image (64x64) | ["Arousal", "Valence"] |
+Self Affective Memory  | Single Image (64x64) | ["Arousal", "Valence"] |
 
 
-The run.py file contains all the necessary configurations. This demos runs on Python 3.x.
+* FaceChannelV1 -  `Barros, P., Churamani, N., & Sciutti, A. (2020). The facechannel: A fast and furious deep neural network for facial expression recognition. SN Computer Science, 1(6), 1-10. <https://link.springer.com/article/10.1007/s42979-020-00325-6>`_
+* Self Affective Memory - `Barros, P., & Wermter, S. (2017, May). A self-organizing model for affective memory. In 2017 International Joint Conference on Neural Networks (IJCNN) (pp. 31-38). IEEE. <https://www2.informatik.uni-hamburg.de/wtm/publications/2017/BW17/Barros-Affective_Memory_2017-Webpage.pdf>`_
 
-
-To run the demo just use
-```sh
-$ python run.py
-
-```
-
-**Related Publications**
-
-
-```sh
-P. Barros, N. Churamani and A. Sciutti,  "The FaceChannel: A Light-Weight Deep Neural Network for Facial Expression Recognition.," in 2020 15th IEEE International Conference on Automatic Face and Gesture Recognition (FG 2020) (FG), Buenos Aires, undefined, AR, 2020 pp. 449-453.
-doi: 10.1109/FG47880.2020.00070
-keywords: {emotion recognition;deep learning}
-url: https://doi.ieeecomputersociety.org/10.1109/FG47880.2020.00070
-
-```
 
 
 **License**
 
-All the examples in this repository are distributed under the Creative Commons CC BY-NC-SA 3.0 DE license. If you use this corpus, you have to agree with the following itens:
+All the examples in this repository are distributed under a Non-Comercial license. If you use this environment, you have to agree with the following itens:
 
-- To cite our reference in any of your publication that make any use of these examples. The references are provided at the end of this page.
-- To use this model for research purpose only.
+- To cite our associated references in any of your publication that make any use of these examples.
+
+- To use the environment for research purpose only.
+
+- To not provide the environment to any second parties.
+
 
 
 **Contact**
