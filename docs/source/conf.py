@@ -12,6 +12,13 @@
 #
 import os
 import sys
+
+autodoc_mock_imports = ['tensorflow']
+autodoc_mock_imports = ['keras']
+autodoc_mock_imports = ['cv2']
+autodoc_mock_imports = ['numpy']
+
+
 import sphinx_rtd_theme
 sys.path.insert(0, os.path.abspath('../../src/'))
 # extensions = ['sphinx.ext.autodoc']
@@ -64,10 +71,7 @@ exclude_patterns = []
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = None
 
-autodoc_mock_imports = ['tensorflow']
-autodoc_mock_imports = ['keras']
-autodoc_mock_imports = ['cv2']
-autodoc_mock_imports = ['numpy']
+
 
 # -- Options for HTML output -------------------------------------------------
 
