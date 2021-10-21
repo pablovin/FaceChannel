@@ -1,8 +1,8 @@
-FaceChannelV1
+Self-Affective Memory
 =======================
 
 
-.. image:: ../../Images/FaceChannel_v2.png
+.. image:: ../../Images/demo_SelfAffective.png
 	:alt: FaceChannel Demo
 	:align: center
 

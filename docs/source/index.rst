@@ -7,7 +7,7 @@ Welcome to FaceChannel's documentation!
 =======================================
 
 
-.. image:: ../../Images/demo_SelfAffective.png
+.. image:: ../../Images/demo.png
 	:alt: FaceChannel Demo
 	:align: center
 
