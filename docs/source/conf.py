@@ -13,7 +13,7 @@
 import os
 import sys
 
-autodoc_mock_imports = ['numpy', "cv2", "keras"]
+autodoc_mock_imports = ["tensorflow", 'numpy', "cv2", "keras"]
 
 
 import sphinx_rtd_theme
