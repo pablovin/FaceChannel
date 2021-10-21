@@ -13,9 +13,9 @@
 import os
 import sys
 
-autodoc_mock_imports = ['tensorflow']
-autodoc_mock_imports = ['keras']
-autodoc_mock_imports = ['cv2']
+# autodoc_mock_imports = ['tensorflow']
+# autodoc_mock_imports = ['keras']
+# autodoc_mock_imports = ['cv2']
 autodoc_mock_imports = ['numpy']
 
 
