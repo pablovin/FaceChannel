@@ -1,7 +1,7 @@
 h5py==3.1.0
 intel_tensorflow==2.6.0
 keras==2.6.0
-numpy==1.19.5
+numpy==1.22.0
 opencv-python==4.5.3.56
 scipy==1.5.4
 tensorflow==2.6.0
