@@ -29,7 +29,7 @@ FaceChannelV1  Dim  | Single Image (64x64) | ["Arousal", "Valence"] |
 Self Affective Memory  | Single Image (64x64) | ["Arousal", "Valence"] |
 
 
-* FaceChannelV1 -  [Barros, P., Churamani, N., & Sciutti, A. (2020). The facechannel: A fast and furious deep neural network for facial expression recognition. SN Computer Science, 1(6), 1-10](https://link.springer.com/article/10.1007/s42979-020-00325-6>)
+* FaceChannelV1 -  [Barros, P., Churamani, N., & Sciutti, A. (2020). The facechannel: A fast and furious deep neural network for facial expression recognition. SN Computer Science, 1(6), 1-10](https://link.springer.com/article/10.1007/s42979-020-00325-6)
 * Self Affective Memory - [Barros, P., & Wermter, S. (2017, May). A self-organizing model for affective memory. In 2017 International Joint Conference on Neural Networks (IJCNN) (pp. 31-38). IEEE.](https://www2.informatik.uni-hamburg.de/wtm/publications/2017/BW17/Barros-Affective_Memory_2017-Webpage.pdf)
 
 
